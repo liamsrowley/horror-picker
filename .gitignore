@@ -10,6 +10,7 @@
 
 # production
 /build
+moviedb.js
 
 # misc
 .DS_Store

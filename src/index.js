@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import { ProvideMovie } from './hooks/useMovie';
+import { App } from './components/App';
 
 const rootElement = document.querySelector('#root');
 
 ReactDOM.render(
-  <App />,
+  <ProvideMovie>
+    <App />
+  </ProvideMovie>,
   rootElement
 )
