@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import moviedb from '../../api/moviedb';
 
 import { HORROR_ID } from '../../constants';
@@ -65,7 +64,7 @@ export const useProvideMovie = () => {
     setConfig(apiConfig.data);
   }
 
-  const fetchMoviePoster = async () => {
+  const buildPosterUrl = async () => {
     const {
       secure_base_url,
       poster_sizes
@@ -83,7 +82,7 @@ export const useProvideMovie = () => {
 
   const actions = {
     fetchMovie,
-    fetchMoviePoster
+    buildPosterUrl
   };
 
   const state = {
