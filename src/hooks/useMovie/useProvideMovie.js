@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import moviedb from '../../api/moviedb';
 
 import { HORROR_ID } from '../../constants';
@@ -6,6 +7,7 @@ import { randomNumBetween } from '../../helpers';
 
 export const useProvideMovie = () => {
   const [movie, setMovie] = useState({});
+  const [config, setConfig] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMovie = async (voteAverage = 9) => {
@@ -57,8 +59,31 @@ export const useProvideMovie = () => {
     setIsLoading(false);
   }
 
+  const fetchApiConfig = async () => {
+    const apiConfig = await moviedb.get('/configuration');
+    console.log(apiConfig.data);
+    setConfig(apiConfig.data);
+  }
+
+  const fetchMoviePoster = async () => {
+    const {
+      secure_base_url,
+      poster_sizes
+    } = config.images;
+    const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
+    setMovie({
+      ...movie,
+      posterUrl
+    });
+  }
+
+  useEffect(() => {
+    fetchApiConfig();
+  }, []);
+
   const actions = {
-    fetchMovie
+    fetchMovie,
+    fetchMoviePoster
   };
 
   const state = {
