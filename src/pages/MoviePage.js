@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useMovie } from '../hooks/useMovie';
 
+import { Movie } from '../components/Movie/Movie';
+
 export const MoviePage = ({ match }) => {
   const [movie, movieActions, movieState] = useMovie();
   const { fetchMovieById, fetchMovie } = movieActions;
@@ -17,7 +19,7 @@ export const MoviePage = ({ match }) => {
 
   return (
     <div>
-      Movie
+      <Movie movie={movie} />
     </div>
   );
 }

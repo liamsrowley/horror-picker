@@ -1,30 +1,33 @@
 import { useState, useEffect } from 'react';
 import moviedb from '../../api/moviedb';
 
-import { HORROR_ID } from '../../constants';
+import {
+  defaultMovie,
+  defaultConfig,
+  defaultParams
+} from '../../config/defaults';
+
 import { randomNumBetween } from '../../helpers';
 
 export const useProvideMovie = () => {
-  const [movie, setMovie] = useState({});
-  const [config, setConfig] = useState({});
-  const [params, setParams] = useState({
-    'with_genres': HORROR_ID
-  });
+  const [movie, setMovie] = useState(defaultMovie);
+  const [config, setConfig] = useState(defaultConfig);
+  const [params, setParams] = useState(defaultParams);
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log(config);
+
 
   const fetchMovie = async (voteAverage = 7) => {
     try {
       setIsLoading(true);
+      setMovie({});
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
-      console.log('Initial data: ', movieList);
 
       // Select a random page from the results and get the movies on that page
       const totalPages = movieList.data.total_pages;
       const selectedPageIndex = randomNumBetween(1, totalPages);
-
-      console.log('Total pages: ', totalPages);
-      console.log('Selected page: ', selectedPageIndex);
 
       const paramsWithPage = {
         ...params,
@@ -32,12 +35,10 @@ export const useProvideMovie = () => {
       }
 
       const selectedPage = await moviedb.get('/discover/movie', { params: paramsWithPage });
-      console.log(selectedPage);
 
       // Select a random movie from the selected page and get its full information
       const selectedMovieIndex = randomNumBetween(0, selectedPage.data.results.length - 1);
       const selectedMovieId = selectedPage.data.results[selectedMovieIndex].id;
-      console.log(selectedPage.data.results[selectedMovieIndex]);
 
       if (selectedMovieId === movie.id) {
         console.log('Same as previous movie');
@@ -65,7 +66,6 @@ export const useProvideMovie = () => {
 
   const fetchApiConfig = async () => {
     const apiConfig = await moviedb.get('/configuration');
-    console.log(apiConfig.data);
     setConfig(apiConfig.data);
   }
 
@@ -74,7 +74,7 @@ export const useProvideMovie = () => {
       secure_base_url,
       poster_sizes
     } = config.images;
-    const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
+    const posterUrl = secure_base_url + poster_sizes[4] + movie.poster_path;
     setMovie({
       ...movie,
       posterUrl
@@ -87,7 +87,6 @@ export const useProvideMovie = () => {
       'vote_average.gte': minRating,
       'vote_count.gte': minReviewCount
     });
-    console.log(params);
   }
 
   useEffect(() => {
