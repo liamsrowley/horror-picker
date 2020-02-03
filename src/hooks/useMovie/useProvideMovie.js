@@ -21,7 +21,7 @@ export const useProvideMovie = () => {
   const fetchMovie = async (voteAverage = 7) => {
     try {
       setIsLoading(true);
-      setMovie({});
+      setMovie(defaultMovie);
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
 
@@ -74,7 +74,9 @@ export const useProvideMovie = () => {
       secure_base_url,
       poster_sizes
     } = config.images;
-    const posterUrl = secure_base_url + poster_sizes[4] + movie.poster_path;
+    const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
+    console.log(secure_base_url);
+    console.log(poster_sizes);
     setMovie({
       ...movie,
       posterUrl

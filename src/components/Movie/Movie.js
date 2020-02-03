@@ -9,7 +9,7 @@ export const Movie = ({ movie }) => {
       <h1>{movie.title}</h1>
       <div>
         <span>{movie.runtime || '...'}</span>
-        <span>{movie.genres && movie.genres.map(genre => genre.name).join(', ')}</span>
+        <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
       </div>
       <div>
         <p>{movie.overview}</p>

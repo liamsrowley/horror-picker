@@ -20,6 +20,7 @@ export const MoviePage = ({ match }) => {
   return (
     <div>
       <Movie movie={movie} />
+      <button onClick={fetchMovie}>Fetch Movie</button>
     </div>
   );
 }
