@@ -1,16 +1,15 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-
-import { Home } from '../pages/Home';
-import { Movie } from '../pages/Movie';
+import { history } from '../history';
+import { HomePage } from '../pages/HomePage';
+import { MoviePage } from '../pages/MoviePage';
 
 export const App = () => {
   return (
-    <Router history={createBrowserHistory()}>
-      <Route path="/" exact component={Home} />
-      <Route path="/movie/:id" exact component={Movie} />
-      <Route path="/movie" exact component={Movie} />
+    <Router history={history}>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/movie/:id" exact component={MoviePage} />
+      <Route path="/movie" exact component={MoviePage} />
     </Router>
   );
 }

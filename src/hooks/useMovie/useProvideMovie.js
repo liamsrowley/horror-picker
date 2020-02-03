@@ -7,18 +7,12 @@ import { randomNumBetween } from '../../helpers';
 export const useProvideMovie = () => {
   const [movie, setMovie] = useState({});
   const [config, setConfig] = useState({});
+  const [params, setParams] = useState({
+    'with_genres': HORROR_ID
+  });
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchMovie = async (voteAverage = 9) => {
-    // Params that determine the range of horror movies returned
-    const params = {
-      'with_genres': HORROR_ID,
-      'vote_average.gte': voteAverage,
-      'vote_count.gte': 500
-    }
-
-    console.log('Initial params: ', params);
-
+  const fetchMovie = async (voteAverage = 7) => {
     try {
       setIsLoading(true);
       // Initial list of movies within paramter range
@@ -58,6 +52,17 @@ export const useProvideMovie = () => {
     setIsLoading(false);
   }
 
+  const fetchMovieById = async (movieId) => {
+    try {
+      setIsLoading(true);
+      const selectedMovie = await moviedb.get(`/movie/${movieId}`);
+      setMovie(selectedMovie.data);
+    } catch (error) {
+      console.error(error);
+    }
+    setIsLoading(false);
+  }
+
   const fetchApiConfig = async () => {
     const apiConfig = await moviedb.get('/configuration');
     console.log(apiConfig.data);
@@ -76,12 +81,23 @@ export const useProvideMovie = () => {
     });
   }
 
+  const setMovieParams = (minReviewCount, minRating) => {
+    setParams({
+      ...params,
+      'vote_average.gte': minRating,
+      'vote_count.gte': minReviewCount
+    });
+    console.log(params);
+  }
+
   useEffect(() => {
     fetchApiConfig();
   }, []);
 
   const actions = {
     fetchMovie,
+    fetchMovieById,
+    setMovieParams,
     buildPosterUrl
   };
 
