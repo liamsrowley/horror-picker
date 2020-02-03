@@ -1,20 +1,16 @@
 import React from 'react';
-import { useMovie } from '../hooks/useMovie';
+import { Router, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+import { Home } from '../pages/Home';
+import { Movie } from '../pages/Movie';
 
 export const App = () => {
-  const [movie, movieActions, movieState] = useMovie();
-  console.log(movie);
-  const { fetchMovie, buildMoviePoster } = movieActions;
   return (
-    <div>
-      <button onClick={() => fetchMovie(6)}>{ movieState.isLoading ? 'Loading' : 'Fetch Movie' }</button>
-      <button onClick={() => buildMoviePoster()}>{ movieState.isLoading ? 'Loading' : 'Fetch Movie Poster' }</button>
-      App
-      <div>
-        { movie.posterUrl && <img src={movie.posterUrl} alt="Movie Poster" /> }
-        <h2>{ movie.title }</h2>
-        <p>{ movie.overview }</p>
-      </div>
-    </div>
+    <Router history={createBrowserHistory()}>
+      <Route path="/" exact component={Home} />
+      <Route path="/movie/:id" exact component={Movie} />
+      <Route path="/movie" exact component={Movie} />
+    </Router>
   );
 }
