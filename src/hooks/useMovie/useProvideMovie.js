@@ -68,23 +68,14 @@ export const useProvideMovie = () => {
   const buildPosterUrl = async () => {
     const {
       secure_base_url,
-      poster_sizes
-    } = config.images;
-    const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
-    setMovie({
-      ...movie,
-      posterUrl
-    });
-  }
-
-  const buildBackdropUrl = () => {
-    const {
-      secure_base_url,
+      poster_sizes,
       backdrop_sizes
     } = config.images;
+    const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
     const backdropUrl = secure_base_url + backdrop_sizes[3] + movie.backdrop_path;
     setMovie({
       ...movie,
+      posterUrl,
       backdropUrl
     });
   }
@@ -105,8 +96,7 @@ export const useProvideMovie = () => {
     fetchMovie,
     fetchMovieById,
     setMovieParams,
-    buildPosterUrl,
-    buildBackdropUrl
+    buildPosterUrl
   };
 
   const state = {
