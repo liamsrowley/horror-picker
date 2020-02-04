@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useMovie } from '../hooks/useMovie';
 
+import { Layout } from '../components/Layout/Layout';
+
 import { Movie } from '../components/Movie/Movie';
 
 export const MoviePage = ({ match }) => {
@@ -18,9 +20,9 @@ export const MoviePage = ({ match }) => {
   }, []);
 
   return (
-    <div>
+    <Layout>
       <Movie movie={movie} />
       <button onClick={fetchMovie}>Fetch Movie</button>
-    </div>
+    </Layout>
   );
 }
