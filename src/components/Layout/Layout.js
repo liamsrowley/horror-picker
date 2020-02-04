@@ -3,11 +3,6 @@ import { useMovie } from '../../hooks/useMovie';
 
 export const Layout = ({ children }) => {
   const [movie, movieActions, movieState] = useMovie();
-  const { buildPosterUrl } = movieActions;
-
-  useEffect(() => {
-    buildPosterUrl();
-  }, [movie.id]);
 
   return (
     <div

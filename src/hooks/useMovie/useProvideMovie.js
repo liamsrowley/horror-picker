@@ -19,6 +19,7 @@ export const useProvideMovie = () => {
     try {
       setIsLoading(true);
       setMovie(defaultMovie);
+      
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
 
@@ -65,7 +66,7 @@ export const useProvideMovie = () => {
     setConfig(apiConfig.data);
   }
 
-  const buildPosterUrl = async () => {
+  const buildImageUrls = async () => {
     const {
       secure_base_url,
       poster_sizes,
@@ -88,15 +89,20 @@ export const useProvideMovie = () => {
     });
   }
 
+  // Fetch api config for image paths and sizes on mount
   useEffect(() => {
     fetchApiConfig();
   }, []);
 
+  // Rebuild poster + backdrop urls when movie changes
+  useEffect(() => {
+    buildImageUrls();
+  }, [movie.id]);
+
   const actions = {
     fetchMovie,
     fetchMovieById,
-    setMovieParams,
-    buildPosterUrl
+    setMovieParams
   };
 
   const state = {
