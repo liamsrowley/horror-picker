@@ -9,5 +9,5 @@ export const Poster = () => {
     buildPosterUrl();
   }, [movie.id]);
 
-  return <img src={movie.posterUrl} alt="Movie Poster" />
+  return <img src={movie.posterUrl} alt={`${movie.title} Poster`} />
 }

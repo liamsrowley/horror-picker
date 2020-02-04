@@ -3,6 +3,8 @@ import React from 'react';
 import { Poster } from './Poster';
 
 export const Movie = ({ movie }) => {
+  console.log(movie);
+  
   return (
     <div>
       <Poster />

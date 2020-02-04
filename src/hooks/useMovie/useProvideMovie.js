@@ -15,9 +15,6 @@ export const useProvideMovie = () => {
   const [params, setParams] = useState(defaultParams);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(config);
-
-
   const fetchMovie = async (voteAverage = 7) => {
     try {
       setIsLoading(true);
@@ -41,7 +38,6 @@ export const useProvideMovie = () => {
       const selectedMovieId = selectedPage.data.results[selectedMovieIndex].id;
 
       if (selectedMovieId === movie.id) {
-        console.log('Same as previous movie');
         fetchMovie(voteAverage);
       }
 
@@ -75,11 +71,21 @@ export const useProvideMovie = () => {
       poster_sizes
     } = config.images;
     const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
-    console.log(secure_base_url);
-    console.log(poster_sizes);
     setMovie({
       ...movie,
       posterUrl
+    });
+  }
+
+  const buildBackdropUrl = () => {
+    const {
+      secure_base_url,
+      backdrop_sizes
+    } = config.images;
+    const backdropUrl = secure_base_url + backdrop_sizes[3] + movie.backdrop_path;
+    setMovie({
+      ...movie,
+      backdropUrl
     });
   }
 
@@ -99,7 +105,8 @@ export const useProvideMovie = () => {
     fetchMovie,
     fetchMovieById,
     setMovieParams,
-    buildPosterUrl
+    buildPosterUrl,
+    buildBackdropUrl
   };
 
   const state = {
