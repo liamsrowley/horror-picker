@@ -4,7 +4,6 @@ import { convertToHoursAndMinutes } from '../../helpers/functions';
 import { Poster } from '../Poster/Poster';
 
 export const Movie = ({ movie }) => {
-  console.log(movie);
   const [hours, minutes] = convertToHoursAndMinutes(movie.runtime);
   return (
     <div>

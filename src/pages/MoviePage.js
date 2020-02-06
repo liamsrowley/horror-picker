@@ -10,9 +10,6 @@ export const MoviePage = ({ match }) => {
   const [isPinned, setIsPinned] = useState();
   const { fetchMovieById, fetchMovie } = movieActions;
 
-  console.log(movie.id);
-  console.log(isPinned);
-
   const movieId = match.params.id;
 
   useEffect(() => {
