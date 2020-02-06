@@ -113,5 +113,5 @@ export const useProvideMovie = () => {
     isLoading
   };
 
-  return [movie, actions, state];
+  return [movie, actions, state, params];
 }
