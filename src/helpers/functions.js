@@ -4,3 +4,12 @@ export const convertToHoursAndMinutes = (totalMinutes) => {
 
   return [hours, minutes];
 }
+
+export const movieIsPinned = (id) => {
+  const movies = JSON.parse(localStorage.getItem('pinnedMovies') || '[]');
+  console.log(movies.find(movie => movie.id === id));
+  if (movies.find(movie => movie.id === id)) {
+    return true;
+  }
+  return false;
+}
