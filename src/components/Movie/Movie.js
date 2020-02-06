@@ -5,7 +5,7 @@ import { Poster } from '../Poster/Poster';
 
 export const Movie = ({ movie }) => {
   console.log(movie);
-  const [hours, minutes] =convertToHoursAndMinutes(movie.runtime);
+  const [hours, minutes] = convertToHoursAndMinutes(movie.runtime);
   return (
     <div>
       <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} />

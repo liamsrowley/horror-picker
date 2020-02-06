@@ -7,7 +7,7 @@ import { Movie } from '../components/Movie/Movie';
 
 export const MoviePage = ({ match }) => {
   const [movie, movieActions, movieState] = useMovie();
-  const [isPinned, setIsPinned] = useState(movieIsPinned(movie.id));
+  const [isPinned, setIsPinned] = useState();
   const { fetchMovieById, fetchMovie } = movieActions;
 
   console.log(movie.id);

@@ -70,6 +70,7 @@ export const useProvideMovie = () => {
   }
 
   const buildImageUrls = async () => {
+    console.log('Building Image URLs');
     const {
       secure_base_url,
       poster_sizes,
@@ -100,7 +101,7 @@ export const useProvideMovie = () => {
   // Rebuild poster + backdrop urls when movie changes
   useEffect(() => {
     buildImageUrls();
-  }, [movie.id]);
+  }, [movie.id, config]);
 
   const actions = {
     fetchMovie,
