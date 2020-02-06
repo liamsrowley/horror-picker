@@ -19,7 +19,7 @@ export const useProvideMovie = () => {
     try {
       setIsLoading(true);
       setMovie(defaultMovie);
-      
+
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
 
@@ -38,10 +38,12 @@ export const useProvideMovie = () => {
       const selectedMovieIndex = randomNumBetween(0, selectedPage.data.results.length - 1);
       const selectedMovieId = selectedPage.data.results[selectedMovieIndex].id;
 
+      // Fetch another movie if the same movie is fetched twice
       if (selectedMovieId === movie.id) {
         fetchMovie(voteAverage);
       }
 
+      // Fetch the full movie details
       const selectedMovie = await moviedb.get(`/movie/${selectedMovieId}`);
       setMovie(selectedMovie.data);
     } catch (error) {
@@ -50,6 +52,7 @@ export const useProvideMovie = () => {
     setIsLoading(false);
   }
 
+  // Allows users to jump to a specific movie if they know the id
   const fetchMovieById = async (movieId) => {
     try {
       setIsLoading(true);
