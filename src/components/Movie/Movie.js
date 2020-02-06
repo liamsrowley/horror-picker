@@ -1,16 +1,17 @@
 import React from 'react';
+import { convertToHoursAndMinutes } from '../../helpers/functions';
 
 import { Poster } from './Poster';
 
 export const Movie = ({ movie }) => {
   console.log(movie);
-  
+  const [hours, minutes] =convertToHoursAndMinutes(movie.runtime);
   return (
     <div>
       <Poster />
       <h1>{movie.title}</h1>
       <div>
-        <span>{movie.runtime || '...'}</span>
+        <span>{hours + 'h ' + minutes + 'm' || '...'}</span>
         <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
       </div>
       <div>
