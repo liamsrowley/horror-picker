@@ -11,8 +11,6 @@ export const Movie = ({ movie }) => {
   const [hours, minutes] = convertToHoursAndMinutes(movie.runtime);
   const [tooltip, renderTooltip, hideTooltip] = useTooltip();
 
-  console.log(movie);
-
   return (
     <div>
       <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} />
