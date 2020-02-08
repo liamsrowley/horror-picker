@@ -58,6 +58,7 @@ export const useProvideMovie = () => {
       setIsLoading(true);
       const selectedMovie = await moviedb.get(`/movie/${movieId}`);
       setMovie(selectedMovie.data);
+      buildImageUrls();
     } catch (error) {
       console.error(error);
     }

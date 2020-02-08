@@ -7,7 +7,6 @@ export const convertToHoursAndMinutes = (totalMinutes) => {
 
 export const movieIsPinned = (id) => {
   const movies = JSON.parse(localStorage.getItem('pinnedMovies') || '[]');
-  console.log(movies.find(movie => movie.id === id));
   if (movies.find(movie => movie.id === id)) {
     return true;
   }
