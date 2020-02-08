@@ -21,6 +21,7 @@ export const HomePage = () => {
 
   return (
     <Layout>
+      <h1>Find me a</h1>
       <Rating
         stop={10}
         step={2}
@@ -29,7 +30,8 @@ export const HomePage = () => {
         emptySymbol={<IoMdStarOutline />}
         fullSymbol={<IoMdStar />}
         onChange={handleChange}
-        />
+      />
+      <h1>horror movie.</h1>
       <button onClick={handleClick}>Search</button>
     </Layout>
   );
