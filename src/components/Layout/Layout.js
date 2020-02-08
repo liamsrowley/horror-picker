@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useMovie } from '../../hooks/useMovie';
+
 import backgroundImage from '../../background.png';
+import { Header } from '../Header/Header';
 
 export const Layout = ({ children }) => {
   const [movie, movieActions, movieState] = useMovie();
@@ -13,6 +15,7 @@ export const Layout = ({ children }) => {
         backgroundImage: `url(${pageBackground})`
       }}
     >
+      <Header />
       { children }
     </div>
   );
