@@ -1,4 +1,4 @@
-import { HORROR_ID } from '../constants';
+import { HORROR_ID } from './constants';
 
 export const defaultMovie = {
   spoken_languages: [],
