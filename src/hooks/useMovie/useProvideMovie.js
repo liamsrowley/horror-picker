@@ -102,7 +102,7 @@ export const useProvideMovie = () => {
   // Rebuild poster + backdrop urls when movie changes
   useEffect(() => {
     buildImageUrls();
-  }, [movie.id, config]);
+  }, [movie.id]);
 
   const actions = {
     fetchMovie,
