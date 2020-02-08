@@ -4,18 +4,14 @@ export const useTooltip = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [pos, setPos] = useState([0, 0]);
 
-  const setPosition = (x, y) => {
-    setPos([x, y]);
+  const setPosition = (e) => {
+    setPos([e.pageX, e.pageY]);
+    setIsVisible(true);
   }
 
-  const setVisibility = (value) => {
-    setIsVisible(value);
+  const hideTooltip = () => {
+    setIsVisible(false);
   }
-
-  const actions = {
-    setPosition,
-    setVisibility
-  };
 
   const tooltip = (params) => {
     const {
@@ -37,5 +33,5 @@ export const useTooltip = () => {
     }
   }
 
-  return [tooltip, actions];
+  return [tooltip, setPosition, hideTooltip];
 }

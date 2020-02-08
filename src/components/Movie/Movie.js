@@ -9,24 +9,14 @@ import { useTooltip } from '../../hooks/useTooltip';
 
 export const Movie = ({ movie }) => {
   const [hours, minutes] = convertToHoursAndMinutes(movie.runtime);
-  const [tooltip, tooltipActions] = useTooltip();
-  const { setPosition, setVisibility } = tooltipActions;
-
-  const handleHover = (e) => {
-    setPosition(e.pageX, e.pageY);
-    setVisibility(true);
-  }
-
-  const handleMouseLeave = () => {
-    setVisibility(false);
-  }
+  const [tooltip, renderTooltip, hideTooltip] = useTooltip();
 
   return (
     <div>
       <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} />
       <div
-        onMouseMove={handleHover}
-        onMouseLeave={handleMouseLeave}
+        onMouseMove={renderTooltip}
+        onMouseLeave={hideTooltip}
       >
         <Rating
           stop={10}
