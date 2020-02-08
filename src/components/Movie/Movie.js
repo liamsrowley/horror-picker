@@ -11,6 +11,8 @@ export const Movie = ({ movie }) => {
   const [hours, minutes] = convertToHoursAndMinutes(movie.runtime);
   const [tooltip, renderTooltip, hideTooltip] = useTooltip();
 
+  console.log(movie);
+
   return (
     <div>
       <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} />
@@ -31,14 +33,25 @@ export const Movie = ({ movie }) => {
           element: <Tooltip>{movie.vote_average}</Tooltip>,
         }) }
       </div>
-      <h1>{movie.title}</h1>
-      <div>
-        <span>{hours + 'h ' + minutes + 'm' || '...'}</span>
-        <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
-      </div>
-      <div>
+      <header>
+        <h1>{movie.title}</h1>
+        <div>
+          <span>{hours + 'h ' + minutes + 'm' || '...'}</span>
+          <span>{movie.genres.map(genre => genre.name).join(', ')}</span>
+        </div>
+      </header>
+      <main>
         <p>{movie.overview}</p>
-      </div>
+        <div>
+          <a rel="noopener noreferrer" target="_blank" href={`https://www.imdb.com/title/${movie.imdb_id}`}>
+            <button>View on IMDb</button>
+          </a>
+          <a rel="noopener noreferrer" target="_blank" href={`https://www.amazon.co.uk/s?k=${movie.title}`}>
+            <button>Search on Amazon</button>
+          </a>
+        </div>
+      </main>
+
     </div>
   );
 }
