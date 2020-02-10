@@ -15,8 +15,7 @@ export const HomePage = () => {
   }
 
   const handleClick = async () => {
-    await fetchMovie();
-    history.push('/movie');
+    await fetchMovie('/movie');
   }
 
   return (

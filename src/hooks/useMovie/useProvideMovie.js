@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import moviedb from '../../api/moviedb';
+import { history } from '../../history';
 
 import {
   defaultMovie,
@@ -15,36 +16,44 @@ export const useProvideMovie = () => {
   const [params, setParams] = useState(defaultParams);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchMovie = async (voteAverage = 7) => {
+  const fetchMovie = async (redirectLocation = null) => {
     try {
       setIsLoading(true);
 
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
 
-      // Select a random page from the results and get the movies on that page
-      const totalPages = movieList.data.total_pages;
-      const selectedPageIndex = randomNumBetween(1, totalPages);
+      if (movieList.data.results.length > 0) {
+        // Select a random page from the results and get the movies on that page
+        const totalPages = movieList.data.total_pages;
+        const selectedPageIndex = randomNumBetween(1, totalPages);
 
-      const paramsWithPage = {
-        ...params,
-        'page': selectedPageIndex
+        const paramsWithPage = {
+          ...params,
+          'page': selectedPageIndex
+        }
+
+        const selectedPage = await moviedb.get('/discover/movie', { params: paramsWithPage });
+
+        // Select a random movie from the selected page and get its full information
+        const selectedMovieIndex = randomNumBetween(0, selectedPage.data.results.length - 1);
+        const selectedMovieId = selectedPage.data.results[selectedMovieIndex].id;
+
+        // Fetch another movie if the same movie is fetched twice
+        if (selectedMovieId === movie.id) {
+          fetchMovie(redirectLocation);
+        }
+
+        // Fetch the full movie details
+        const selectedMovie = await moviedb.get(`/movie/${selectedMovieId}`);
+        setMovie(selectedMovie.data);
+        if (redirectLocation) {
+          history.push(redirectLocation);
+        }
+      } else {
+        console.error('No movie found');
+        setMovie(defaultMovie);
       }
-
-      const selectedPage = await moviedb.get('/discover/movie', { params: paramsWithPage });
-
-      // Select a random movie from the selected page and get its full information
-      const selectedMovieIndex = randomNumBetween(0, selectedPage.data.results.length - 1);
-      const selectedMovieId = selectedPage.data.results[selectedMovieIndex].id;
-
-      // Fetch another movie if the same movie is fetched twice
-      if (selectedMovieId === movie.id) {
-        fetchMovie(voteAverage);
-      }
-
-      // Fetch the full movie details
-      const selectedMovie = await moviedb.get(`/movie/${selectedMovieId}`);
-      setMovie(selectedMovie.data);
     } catch (error) {
       console.error(error);
     }

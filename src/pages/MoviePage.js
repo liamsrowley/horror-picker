@@ -65,7 +65,7 @@ export const MoviePage = ({ match }) => {
   return (
     <Layout>
       <Movie movie={movie} />
-      <button onClick={fetchMovie}>Fetch Movie</button>
+      <button onClick={() => fetchMovie()}>Fetch Movie</button>
       { isPinned ? (
         <button onClick={unpinMovie}>Unpin</button>
       ) : (
