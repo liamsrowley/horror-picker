@@ -82,7 +82,7 @@ export const useProvideMovie = () => {
     setMovie({
       ...movie,
       posterUrl,
-      backdropUrl
+      backdropUrl: ''
     });
   }
 
@@ -90,7 +90,8 @@ export const useProvideMovie = () => {
     setParams({
       ...params,
       'vote_average.gte': minRating,
-      'vote_count.gte': minReviewCount
+      'vote_average.lte': minRating + 1,
+      'vote_count.gte': minReviewCount,
     });
   }
 

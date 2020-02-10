@@ -8,7 +8,8 @@ export const defaultMovie = {
 export const defaultParams = {
   'with_genres': HORROR_ID,
   'vote_count.gte': 500,
-  'vote_average.gte': 7
+  'vote_average.gte': 7,
+  'vote_average.lte': 8
 };
 
 export const defaultConfig = {

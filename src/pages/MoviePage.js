@@ -13,6 +13,7 @@ export const MoviePage = ({ match }) => {
   const movieId = match.params.id;
 
   useEffect(() => {
+    console.log('On Mount Movie Fetch');
     if (movieId) {
       fetchMovieById(movieId);
     } else {
