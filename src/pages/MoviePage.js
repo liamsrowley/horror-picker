@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'toasted-notes';
+import 'toasted-notes/src/styles.css';
+
 import { useMovie } from '../hooks/useMovie';
 import { movieIsPinned } from '../helpers/functions';
-
 import { Layout } from '../components/Layout/Layout';
 import { Movie } from '../components/Movie/Movie';
 
@@ -13,7 +15,6 @@ export const MoviePage = ({ match }) => {
   const movieId = match.params.id;
 
   useEffect(() => {
-    console.log('On Mount Movie Fetch');
     if (movieId) {
       fetchMovieById(movieId);
     } else {
@@ -43,6 +44,9 @@ export const MoviePage = ({ match }) => {
       movies.push(movieToPin);
       localStorage.setItem('pinnedMovies', JSON.stringify(movies));
       setIsPinned(true);
+      toast.notify(`Pinned Movie: '${movie.title}'`, {
+        position: 'bottom-left'
+      });
     } else {
       console.log('Duplicate pin');
     }
@@ -53,6 +57,9 @@ export const MoviePage = ({ match }) => {
     const storedMovies = JSON.parse(localStorage.getItem('pinnedMovies'));
     const updatedMovies = storedMovies.filter(storedMovie => storedMovie.id !== movie.id);
     localStorage.setItem('pinnedMovies', JSON.stringify(updatedMovies));
+    toast.notify(`Unpinned Movie: '${movie.title}'`, {
+      position: 'bottom-left'
+    });
   }
 
   return (

@@ -18,7 +18,6 @@ export const useProvideMovie = () => {
   const fetchMovie = async (voteAverage = 7) => {
     try {
       setIsLoading(true);
-      setMovie(defaultMovie);
 
       // Initial list of movies within paramter range
       const movieList = await moviedb.get('/discover/movie', { params });
@@ -55,6 +54,7 @@ export const useProvideMovie = () => {
   // Allows users to jump to a specific movie if they know the id
   const fetchMovieById = async (movieId) => {
     try {
+      console.log('Fetching movie by ID');
       setIsLoading(true);
       const selectedMovie = await moviedb.get(`/movie/${movieId}`);
       setMovie(selectedMovie.data);
@@ -77,6 +77,7 @@ export const useProvideMovie = () => {
       poster_sizes,
       backdrop_sizes
     } = config.images;
+    console.log(config);
     const posterUrl = secure_base_url + poster_sizes[3] + movie.poster_path;
     const backdropUrl = secure_base_url + backdrop_sizes[3] + movie.backdrop_path;
     setMovie({
@@ -97,13 +98,15 @@ export const useProvideMovie = () => {
 
   // Fetch api config for image paths and sizes on mount
   useEffect(() => {
+    console.log('Fetching Api Config');
     fetchApiConfig();
+    console.log(config);
   }, []);
 
   // Rebuild poster + backdrop urls when movie changes
   useEffect(() => {
     buildImageUrls();
-  }, [movie.id]);
+  }, [movie.id, config]);
 
   const actions = {
     fetchMovie,

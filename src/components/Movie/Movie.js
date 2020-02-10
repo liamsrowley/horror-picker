@@ -28,7 +28,7 @@ export const Movie = ({ movie }) => {
           readonly
         />
         { tooltip({
-          element: <Tooltip>{Math.floor(movie.vote_average)}</Tooltip>,
+          element: <Tooltip>Exact Score: {movie.vote_average}</Tooltip>,
         }) }
       </div>
       <header>
