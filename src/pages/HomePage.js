@@ -16,13 +16,8 @@ export const HomePage = () => {
 
   const handleClick = async () => {
     await fetchMovie();
+    history.push('/movie');
   }
-
-  useEffect(() => {
-    if (!movieState.isLoading && movie.id) {
-      history.push('/movie');
-    }
-  }, [movie.id, movieState.isLoading]);
 
   return (
     <Layout>
