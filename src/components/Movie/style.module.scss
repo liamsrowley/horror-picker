@@ -18,26 +18,27 @@
 }
 
 .title {
-  font-size: $font_size_3xl;
+  font-size: $font_size_2xl;
   margin: 0;
   margin-bottom: $spacing_sm;
 }
 
 .meta {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   color: $color_text_subtle;
   font-size: $font_size_sm;
 }
 
 .meta-item:nth-child(1) {
-  margin-bottom: $spacing_2xs;
+  margin-right: $spacing_sm;
 }
 
 .text {
-  font-size: $font_size_lg;
+  font-size: $font_size_md;
   margin: $spacing_xl 0;
   color: $color_text_default;
+  line-height: $font_height_tall;
 }
 
 .movie-rating {
