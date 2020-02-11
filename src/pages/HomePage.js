@@ -9,11 +9,7 @@ import styles from './style.module.scss';
 
 export const HomePage = () => {
   const [movie, movieActions, movieState, params] = useMovie();
-  const { fetchMovie, setMovieParams } = movieActions;
-
-  const handleChange = (value) => {
-    setMovieParams(500, value);
-  }
+  const { fetchMovie } = movieActions;
 
   const handleClick = async () => {
     await fetchMovie('/movie');

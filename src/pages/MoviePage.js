@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import toast from 'toasted-notes';
+import React, { useEffect } from 'react';
 import 'toasted-notes/src/styles.css';
 
 import { useMovie } from '../hooks/useMovie';

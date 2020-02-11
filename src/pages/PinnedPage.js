@@ -13,7 +13,7 @@ export const PinnedPage = ({ match }) => {
     pinnedMovies.map(movie => (
       <div key={movie.id} className={styles['movie']}>
         <Link to={`movie/${movie.id}`}>
-          <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} />
+          <Poster posterUrl={movie.posterUrl} movieTitle={movie.title} size="small" />
         </Link>
       </div>
     ))
