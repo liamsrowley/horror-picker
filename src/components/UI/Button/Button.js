@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Spinner } from '../Spinner/Spinner';
+
 import styles from './style.module.scss';
 
 export const Button = ({ children, onClick, variant, size, isLoading }) => {
@@ -32,7 +34,7 @@ export const Button = ({ children, onClick, variant, size, isLoading }) => {
       className={buttonClasses.join(' ')}
       onClick={onClick}
     >
-    { isLoading ? 'Loading...' : children }
+    { isLoading ? <Spinner /> : children }
     </button>
   );
 }
