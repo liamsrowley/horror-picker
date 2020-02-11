@@ -1,0 +1,13 @@
+@import '../../style/_colors.scss';
+@import '../../style/_spacing.scss';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: $spacing_lg;
+}

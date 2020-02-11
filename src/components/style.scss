@@ -9,6 +9,7 @@ body {
   letter-spacing: $font_spacing_wide;
   line-height: $font_height_base;
   color: $color_text_default;
+  box-sizing: border-box;
 }
 
 h1,
@@ -22,4 +23,13 @@ h6 {
 
 button {
   font-weight: $font_weight_bold;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $color_text_default;
 }

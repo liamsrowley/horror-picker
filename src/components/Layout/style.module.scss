@@ -1,15 +1,18 @@
 @import '../../style/_main.scss';
+@import '../../style/_spacing.scss';
 @import '../../style/_colors.scss';
 @import '../../style/_zindices.scss';
 
 .layout {
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   max-width: $site_max_width;
   margin: 0 auto;
+  padding: $spacing_md;
+  position: relative;
 }
 
 .layout-background {
