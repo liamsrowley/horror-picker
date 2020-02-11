@@ -1,0 +1,16 @@
+@import '../style/_spacing.scss';
+
+.page {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacing_md;
+}

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useMovie } from '../hooks/useMovie';
-import { history } from '../history';
-import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
-import Rating from 'react-rating';
 
 import { Layout } from '../components/Layout/Layout';
 import { Button } from '../components/UI/Button/Button';
+import { MovieSelector } from '../components/MovieSelector/MovieSelector';
+
+import styles from './style.module.scss';
 
 export const HomePage = () => {
   const [movie, movieActions, movieState, params] = useMovie();
@@ -21,18 +21,12 @@ export const HomePage = () => {
 
   return (
     <Layout>
-      <h1>Find me a</h1>
-      <Rating
-        stop={10}
-        step={2}
-        fractions={2}
-        initialRating={params['vote_average.gte']}
-        emptySymbol={<IoMdStarOutline />}
-        fullSymbol={<IoMdStar />}
-        onChange={handleChange}
-      />
-      <h1>horror movie.</h1>
-      <Button isLoading={movieState.isLoading} onClick={handleClick}>Search</Button>
+      <main className={styles['page']}>
+        <MovieSelector />
+        <div className={styles['page-controls']}>
+          <Button isLoading={movieState.isLoading} onClick={handleClick}>Search</Button>
+        </div>
+      </main>
     </Layout>
   );
 }

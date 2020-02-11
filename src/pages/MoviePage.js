@@ -64,13 +64,15 @@ export const MoviePage = ({ match }) => {
 
   return (
     <Layout>
-      <Movie movie={movie} />
-      <button onClick={() => fetchMovie()}>Fetch Movie</button>
-      { isPinned ? (
-        <button onClick={unpinMovie}>Unpin</button>
-      ) : (
-        <button onClick={pinMovie}>Pin Movie</button>
-      )}
+      <main>
+        <Movie movie={movie} />
+        <button onClick={() => fetchMovie()}>Fetch Movie</button>
+        { isPinned ? (
+          <button onClick={unpinMovie}>Unpin</button>
+        ) : (
+          <button onClick={pinMovie}>Pin Movie</button>
+        )}
+      </main>
     </Layout>
   );
 }

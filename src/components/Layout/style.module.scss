@@ -4,15 +4,15 @@
 @import '../../style/_zindices.scss';
 
 .layout {
-  max-width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   max-width: $site_max_width;
   margin: 0 auto;
-  padding: $spacing_md;
+  padding: 0 $spacing_md;
   position: relative;
+  align-items: stretch;
 }
 
 .layout-background {
@@ -26,7 +26,6 @@
   left: 0;
   z-index: $zindex_background;
   filter: blur(4px);
-  overflow: hidden;
   transform: translate(-5vw, -5vh);
 }
 

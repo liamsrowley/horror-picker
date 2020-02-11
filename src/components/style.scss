@@ -1,6 +1,11 @@
 @import '../style/_typography.scss';
 @import '../style/_colors.scss';
 
+html {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -32,4 +37,10 @@ li {
 a {
   text-decoration: none;
   color: $color_text_default;
+}
+
+.icon {
+  height: 42px;
+  width: 42px;
+  color: $color_brand_secondary;
 }
