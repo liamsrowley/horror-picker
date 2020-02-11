@@ -1,4 +1,5 @@
 @import '../style/_typography.scss';
+@import '../style/_colors.scss';
 
 body {
   padding: 0;
@@ -7,6 +8,7 @@ body {
   font-weight: $font_weight_medium;
   letter-spacing: $font_spacing_wide;
   line-height: $font_height_base;
+  color: $color_text_default;
 }
 
 h1,
