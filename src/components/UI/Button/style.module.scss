@@ -1,0 +1,32 @@
+@import '../../../style/_borders.scss';
+@import '../../../style/_colors.scss';
+@import '../../../style/_spacing.scss';
+
+.button {
+  height: 52px;
+  border: none;
+  background: $color_button_default;
+  color: $color_text_default;
+  border-radius: $border_radius_sm;
+  padding: 0 $spacing_padding_sm;
+}
+
+.button:hover {
+  background: $color_button_default_selected;
+}
+
+.button--subtle {
+  background: $color_button_subtle;
+}
+
+.button--subtle:hover {
+  background: $color_button_subtle_selected;
+}
+
+.button--small {
+  height: 42px;
+}
+
+.button--large {
+  height: 60px;
+}

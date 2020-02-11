@@ -17,7 +17,7 @@ export const MoviePage = ({ match }) => {
   useEffect(() => {
     if (movieId) {
       fetchMovieById(movieId);
-    } else {
+    } else if (!movie.id) {
       fetchMovie();
     }
   }, []);

@@ -5,6 +5,7 @@ import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import Rating from 'react-rating';
 
 import { Layout } from '../components/Layout/Layout';
+import { Button } from '../components/UI/Button/Button';
 
 export const HomePage = () => {
   const [movie, movieActions, movieState, params] = useMovie();
@@ -31,7 +32,7 @@ export const HomePage = () => {
         onChange={handleChange}
       />
       <h1>horror movie.</h1>
-      <button onClick={handleClick}>Search</button>
+      <Button isLoading={movieState.isLoading} onClick={handleClick}>Search</Button>
     </Layout>
   );
 }
