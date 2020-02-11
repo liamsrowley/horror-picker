@@ -1,0 +1,60 @@
+@import '../../style/_typography.scss';
+@import '../../style/_spacing.scss';
+@import '../../style/_colors.scss';
+
+.movie {
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip {
+  display: inline;
+}
+
+.header {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: $font_size_3xl;
+  margin: 0;
+  margin-bottom: $spacing_sm;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  color: $color_text_subtle;
+  font-size: $font_size_sm;
+}
+
+.meta-item:nth-child(1) {
+  margin-bottom: $spacing_2xs;
+}
+
+.text {
+  font-size: $font_size_lg;
+  margin: $spacing_xl 0;
+  color: $color_text_default;
+}
+
+.movie-rating {
+  margin-top: $spacing_lg;
+}
+
+.movie-rating svg {
+  width: 32px;
+  height: 32px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.link {
+  width: 100%;
+}

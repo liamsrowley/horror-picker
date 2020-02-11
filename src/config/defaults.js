@@ -2,7 +2,8 @@ import { HORROR_ID } from './constants';
 
 export const defaultMovie = {
   spoken_languages: [],
-  genres: []
+  genres: [],
+  release_date: ''
 };
 
 export const defaultParams = {

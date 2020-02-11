@@ -1,0 +1,25 @@
+@import '../../style/_main.scss';
+@import '../../style/_typography.scss';
+@import '../../style/_spacing.scss';
+@import '../../style/_colors.scss';
+@import '../../style/_zindices.scss';
+@import '../../style/_borders.scss';
+
+.controls {
+  border-radius: $border_radius_sm;
+  background: rgba(0, 0, 0, 0.90);
+  position: fixed;
+  bottom: 20px;
+  width: 260px;
+  display: flex;
+  flex-direction: row;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $spacing_sm;
+  z-index: $zindex_overlay;
+  justify-content: space-between;
+}
+
+.controls button {
+  width: 48%;
+}

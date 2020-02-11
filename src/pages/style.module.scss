@@ -14,3 +14,22 @@
   justify-content: center;
   margin-top: $spacing_md;
 }
+
+.movie-page,
+.pinned-page {
+  margin-top: $spacing_3xl;
+  padding-bottom: 180px;
+}
+
+.pinned-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie {
+  height: 320px;
+  width: 210px;
+  margin-bottom: $spacing_lg;
+}

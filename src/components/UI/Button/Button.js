@@ -4,12 +4,12 @@ import { Spinner } from '../Spinner/Spinner';
 
 import styles from './style.module.scss';
 
-export const Button = ({ children, onClick, variant, size, isLoading }) => {
+export const Button = ({ children, onClick, variant, size, isLoading, emphasized }) => {
   let buttonClasses = [styles['button']];
 
   switch (variant) {
     case 'subtle':
-      buttonClasses.push(styles['button--subtle']);
+      buttonClasses.push(styles['subtle']);
       break;
 
     default:
@@ -18,15 +18,19 @@ export const Button = ({ children, onClick, variant, size, isLoading }) => {
 
   switch (size) {
     case 'large':
-      buttonClasses.push(styles['button--large']);
+      buttonClasses.push(styles['large']);
       break;
 
     case 'small':
-      buttonClasses.push(styles['button--small']);
+      buttonClasses.push(styles['small']);
       break;
 
     default:
       break;
+  }
+
+  if (emphasized) {
+    buttonClasses.push(styles['emphasized']);
   }
 
   return (

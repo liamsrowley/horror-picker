@@ -1,0 +1,12 @@
+@import '../../style/_borders.scss';
+
+.poster {
+  width: 100%;
+  max-height: 420px;
+  height: 100%;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: $border_radius_sm;
+}

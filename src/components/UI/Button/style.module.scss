@@ -10,28 +10,33 @@
   color: $color_button_text;
   border-radius: $border_radius_sm;
   padding: 0 $spacing_md;
-  text-transform: uppercase;
   font-size: $font_size_sm;
   letter-spacing: $font_spacing_wider;
   text-align: center;
+  width: 100%;
+}
+
+.emphasized {
+  text-transform: uppercase;
 }
 
 .button:hover {
   background: $color_button_default_selected;
 }
 
-.button--subtle {
+.subtle {
   background: $color_button_subtle;
+  color: $color_text_default;
 }
 
-.button--subtle:hover {
+.subtle:hover {
   background: $color_button_subtle_selected;
 }
 
-.button--small {
+.small {
   height: 42px;
 }
 
-.button--large {
+.large {
   height: 60px;
 }
