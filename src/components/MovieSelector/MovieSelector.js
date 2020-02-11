@@ -15,7 +15,7 @@ export const MovieSelector = () => {
 
   return (
     <div className={styles['movie-selector']}>
-      <h1>Find me a</h1>
+      <h3>Find me a</h3>
       <Rating
         stop={10}
         step={2}
@@ -25,7 +25,7 @@ export const MovieSelector = () => {
         fullSymbol={<IoMdStar />}
         onChange={handleChange}
       />
-      <h1>horror movie.</h1>
+      <h3>horror movie.</h3>
     </div>
   );
 }

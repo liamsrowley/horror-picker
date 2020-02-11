@@ -1,3 +1,4 @@
+@import '../style/_main.scss';
 @import '../style/_typography.scss';
 @import '../style/_colors.scss';
 
@@ -26,6 +27,26 @@ h6 {
   font-family: $font_stack_header;
 }
 
+h1 {
+  font-size: $font_size_4xl;
+}
+
+h2 {
+  font-size: $font_size_3xl;
+}
+
+h3 {
+  font-size: $font_size_2xl;
+}
+
+h4 {
+  font-size: $font_size_xl;
+}
+
+h5 {
+  font-size: $font_size_lg;
+}
+
 button {
   font-weight: $font_weight_bold;
 }
@@ -40,7 +61,7 @@ a {
 }
 
 .icon {
-  height: 42px;
-  width: 42px;
+  height: 52px;
+  width: 52px;
   color: $color_brand_secondary;
 }
