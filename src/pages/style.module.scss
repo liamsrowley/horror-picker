@@ -23,13 +23,14 @@
 
 .pinned-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .movie {
-  height: 320px;
-  width: 210px;
-  margin-bottom: $spacing_lg;
+  height: auto;
+  width: 48%;
+  margin-bottom: $spacing_xs;
 }

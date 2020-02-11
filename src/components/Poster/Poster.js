@@ -8,8 +8,10 @@ export const Poster = ({ posterUrl, movieTitle, size }) => {
 
   if (size === 'large') {
     classes.push(styles['large']);
-  } else if (size ==='small') {
+  } else if (size === 'small') {
     classes.push(styles['small']);
+  } else if (size === 'fluid') {
+    classes.push(styles['fluid']);
   }
 
   return (
