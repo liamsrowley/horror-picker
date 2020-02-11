@@ -5,6 +5,8 @@ import { HomePage } from '../pages/HomePage';
 import { MoviePage } from '../pages/MoviePage';
 import { PinnedPage } from '../pages/PinnedPage';
 
+import './style.scss';
+
 export const App = () => {
   return (
     <Router history={history}>

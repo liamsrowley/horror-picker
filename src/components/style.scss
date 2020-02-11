@@ -1,0 +1,23 @@
+@import '../style/_typography.scss';
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font_stack;
+  font-weight: $font_weight_medium;
+  letter-spacing: $font_spacing_wide;
+  line-height: $font_height_base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font_stack_header;
+}
+
+button {
+  font-weight: $font_weight_bold;
+}
