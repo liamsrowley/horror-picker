@@ -56,11 +56,11 @@ export const MovieControls = () => {
   return (
     <div className={styles['controls']}>
       { isPinned ? (
-        <Button onClick={unpinMovie} variant="highlighted">Unpin</Button>
+        <Button onClick={unpinMovie} variant="highlighted" size="small">Unpin</Button>
       ) : (
-        <Button onClick={pinMovie} variant="subtle">Pin</Button>
+        <Button onClick={pinMovie} variant="subtle" size="small">Pin</Button>
       )}
-      <Button onClick={() => fetchMovie()} variant="subtle" isLoading={movieState.isLoading}>Next</Button>
+      <Button onClick={() => fetchMovie()} variant="subtle"  size="small" isLoading={movieState.isLoading}>Next</Button>
     </div>
   );
 }

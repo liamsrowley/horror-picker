@@ -5,6 +5,7 @@
 .movie {
   display: flex;
   flex-direction: column;
+  animation: slideUp 0.3s ease;
 }
 
 .tooltip {
@@ -20,7 +21,7 @@
 .title {
   font-size: $font_size_2xl;
   margin: 0;
-  margin-bottom: $spacing_sm;
+  margin-bottom: $spacing_xs;
 }
 
 .meta {
@@ -36,7 +37,7 @@
 
 .text {
   font-size: $font_size_md;
-  margin: $spacing_xl 0;
+  margin: $spacing_lg 0 $spacing_xl 0;
   color: $color_text_default;
   line-height: $font_height_tall;
 }
@@ -58,4 +59,16 @@
 
 .link {
   width: 100%;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
