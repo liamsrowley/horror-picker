@@ -61,13 +61,16 @@ export const useProvideMovie = () => {
   }
 
   // Allows users to jump to a specific movie if they know the id
-  const fetchMovieById = async (movieId) => {
+  const fetchMovieById = async (movieId, redirectLocation = null) => {
     try {
       console.log('Fetching movie by ID');
       setIsLoading(true);
       const selectedMovie = await moviedb.get(`/movie/${movieId}`);
       setMovie(selectedMovie.data);
       buildImageUrls();
+      if (redirectLocation) {
+        history.push(redirectLocation);
+      }
     } catch (error) {
       console.error(error);
     }
