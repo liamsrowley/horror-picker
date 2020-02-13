@@ -53,11 +53,18 @@
 
   .pinned-page {
     align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .movie {
     width: 23%;
     margin-bottom: $spacing_lg;
+    margin-right: 2%;
+  }
+}
+
+@media (min-width: $breakpoint_md) {
+  .movie {
     height: 380px;
   }
 }
