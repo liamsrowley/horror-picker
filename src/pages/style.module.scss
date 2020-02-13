@@ -37,7 +37,7 @@
 .movie {
   height: auto;
   width: 48%;
-  height: 360px;
+  height: 30vh;
   margin-bottom: $spacing_xs;
 }
 
@@ -58,5 +58,6 @@
   .movie {
     width: 23%;
     margin-bottom: $spacing_lg;
+    height: 380px;
   }
 }
