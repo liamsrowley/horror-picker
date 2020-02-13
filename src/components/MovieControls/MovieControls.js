@@ -36,7 +36,7 @@ export const MovieControls = () => {
       localStorage.setItem('pinnedMovies', JSON.stringify(movies));
       setIsPinned(true);
       toast.notify(`Pinned Movie: '${movie.title}'`, {
-        position: 'bottom-left'
+        position: 'top-left'
       });
     } else {
       console.log('Duplicate pin');
@@ -49,7 +49,7 @@ export const MovieControls = () => {
     const updatedMovies = storedMovies.filter(storedMovie => storedMovie.id !== movie.id);
     localStorage.setItem('pinnedMovies', JSON.stringify(updatedMovies));
     toast.notify(`Unpinned Movie: '${movie.title}'`, {
-      position: 'bottom-left'
+      position: 'top-left'
     });
   }
 

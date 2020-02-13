@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMovie } from '../hooks/useMovie';
 
 import { Layout } from '../components/Layout/Layout';
