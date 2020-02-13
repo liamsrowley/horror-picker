@@ -4,7 +4,7 @@
 .poster {
   width: 100%;
   max-height: 640px;
-  height: 70vh;
+  height: 100%;
   margin: 0;
   background-size: cover;
   background-position: center;
@@ -16,9 +16,4 @@
 .poster:hover {
   cursor: pointer;
   transform: translateY(-2%);
-}
-
-.small {
-  max-height: 360px;
-  max-width: 240px;
 }

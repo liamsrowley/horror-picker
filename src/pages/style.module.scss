@@ -37,10 +37,11 @@
 .movie {
   height: auto;
   width: 48%;
+  height: 360px;
   margin-bottom: $spacing_xs;
 }
 
-@media (min-width: $breakpoint_md) {
+@media (min-width: $breakpoint_sm) {
   .movie-page {
     display: flex;
     height: 100%;
@@ -52,11 +53,10 @@
 
   .pinned-page {
     align-items: flex-start;
-    justify-content: flex-start;
   }
 
   .movie {
-    width: 25%;
+    width: 23%;
     margin-bottom: $spacing_lg;
   }
 }
