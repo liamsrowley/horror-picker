@@ -8,7 +8,7 @@ import { Button } from '../UI/Button/Button';
 
 import styles from './style.module.scss';
 
-export const MovieControls = () => {
+export const MovieControls = ({ allowMovieTarversal }) => {
   const [movie, movieActions, movieState] = useMovie();
   const { fetchMovieById, fetchMovie } = movieActions;
   const [isPinned, setIsPinned] = useState();
@@ -60,7 +60,9 @@ export const MovieControls = () => {
       ) : (
         <Button onClick={pinMovie} variant="subtle" size="small">Pin</Button>
       )}
-      <Button onClick={() => fetchMovie()} variant="subtle"  size="small" isLoading={movieState.isLoading}>Next</Button>
+      { allowMovieTarversal && (
+        <Button onClick={() => fetchMovie()} variant="subtle"  size="small" isLoading={movieState.isLoading}>Next</Button>
+      )}
     </div>
   );
 }

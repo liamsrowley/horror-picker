@@ -34,7 +34,7 @@ export const MoviePage = ({ match }) => {
         ) : (
           <Movie movie={movie} />
         )}
-        <MovieControls />
+        <MovieControls allowMovieTarversal={movieId ? false : true } />
       </main>
     </Layout>
   );

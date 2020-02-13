@@ -1,4 +1,5 @@
 @import '../style/_spacing.scss';
+@import '../style/_main.scss';
 
 .page {
   display: flex;
@@ -37,4 +38,25 @@
   height: auto;
   width: 48%;
   margin-bottom: $spacing_xs;
+}
+
+@media (min-width: $breakpoint_md) {
+  .movie-page {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pinned-page {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .movie {
+    width: 25%;
+    margin-bottom: $spacing_lg;
+  }
 }

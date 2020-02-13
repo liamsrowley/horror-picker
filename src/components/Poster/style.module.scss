@@ -1,20 +1,24 @@
 @import '../../style/_borders.scss';
+@import '../../style/_main.scss';
 
 .poster {
   width: 100%;
-  max-height: 420px;
-  height: 380px;
-  margin: 0 auto;
+  max-height: 640px;
+  height: 70vh;
+  margin: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: $border_radius_sm;
+  transition: all 0.2s ease;
 }
 
-.large {
-  height: 440px;
+.poster:hover {
+  cursor: pointer;
+  transform: translateY(-2%);
 }
 
 .small {
-  height: 200px;
+  max-height: 360px;
+  max-width: 240px;
 }

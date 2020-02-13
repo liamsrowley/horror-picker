@@ -17,6 +17,10 @@
   font-weight: $font_weight_medium;
 }
 
+.nav-item:hover {
+  color: $color_text_sharp;
+}
+
 .nav-item--active {
   font-weight: $font_weight_bold;
   color: $color_text_sharp;
